@@ -8,7 +8,7 @@ Termipedia is basically wikipedia for the terminal
 ```sh
 git clone https://github.com/kantiankant/Termipedia
 cd Termipedia
-doas/sudo cp termipedia /usr/local/bin
+doas/sudo cp termipedia.sh /usr/local/bin/termipedia
 ```
 
 
