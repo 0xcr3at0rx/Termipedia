@@ -1,7 +1,7 @@
 #!/bin/sh
 
 if [ -z "$1" ]; then
-    echo "Usage: wikisearch <query>" >&2
+    echo "Usage: termipedia <query>" >&2
     exit 1
 fi
 
