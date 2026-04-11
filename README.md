@@ -1,31 +1,51 @@
 ## Termipedia
 
 
-Termipedia is basically wikipedia for the terminal
 Termipedia is a POSIX shell script for searching Wikipedia without the hassle of opening a web browser because it lives in your terminal. It has fuzzy searching, disambiguation page handling, and is lightweight all out of the box
 
-<details>
-<summary><b>Dependencies</b></summary>
+## Dependencies
 
 <details>
-<summary>You almost certainly already have these</summary>
+<summary>Alpine</summary>
 
-- `less` — pages the article so it doesn't vomit text all over your terminal
-- `sed` — replaces spaces with underscores. Yes, that's genuinely all it does here
-
+```sh
+apk add curl jq fzf less
+```
 </details>
 
 <details>
-<summary>You'll actually need to go and install these</summary>
+<summary>Arch</summary>
 
-| Package | Arch | Debian/Ubuntu | Fedora | macOS (Homebrew) |
-|---------|------|---------------|--------|-----------------|
-| `curl`  | `curl` | `curl` | `curl` | `curl` |
-| `jq`    | `jq` | `jq` | `jq` | `jq` |
-| `fzf`   | `fzf` | `fzf` | `fzf` | `fzf` |
+```sh
+pacman -S curl jq fzf less
+```
+</details>
 
+<details>
+<summary>Debian/Ubuntu</summary>
+
+```sh
+apt install curl jq fzf less
+```
 </details>
+
+<details>
+<summary>Fedora</summary>
+
+```sh
+dnf install curl jq fzf less
+```
 </details>
+
+<details>
+<summary>macOS (Homebrew)</summary>
+
+```sh
+brew install curl jq fzf
+```
+`less` comes with macOS. You're welcome, I suppose.
+</details>
+
 
 ## Installation
 
