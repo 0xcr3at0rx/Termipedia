@@ -4,7 +4,7 @@ set -eu
 # Configuration
 WIKI_LANG="${WIKI_LANG:-en}"
 API="https://${WIKI_LANG}.wikipedia.org/w/api.php"
-UA="Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+UA="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
 
 # Styles
 B=$(printf '\033[1m') G=$(printf '\033[32m') Y=$(printf '\033[33m') 
@@ -144,7 +144,6 @@ SELECTED=$(echo "$TITLES" | fzf --prompt="${BL}${B}Wiki (${WIKI_LANG}) ❯ ${R}"
                     }
                     if (!done && line != \"  \") { 
                         print line; l_count++;
-                        if (l_count < max_lines) { print \"\"; l_count++ }
                     }
                     if (l_count >= max_lines) done = 1
                 }
