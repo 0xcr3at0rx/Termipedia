@@ -129,7 +129,6 @@ SEARCH_RAW=$(curl -fsSL -A "$UA" "$SEARCH_URL")
 TITLES=$(echo "$SEARCH_RAW" | jq -r '.query.search[].title' 2>/dev/null)
 
 # Verify that the search returned valid results before launching fzf
-# Checks if $TITLES is empty (-z) or contains the string "null" (returned by jq on empty objects)
 if [ -z "$TITLES" ] || [ "$TITLES" = "null" ]; then
     echo "[!] No results found for '${QUERY}'."
     exit 1
@@ -140,6 +139,8 @@ SELECTED=$(echo "$TITLES" | fzf --prompt="${BLUE}${BOLD}Wiki (${WIKI_LANG}) ❯ 
           --layout=reverse --border=rounded --no-info \
           --preview-window="right:65%:wrap:border-left" \
           --preview "
+            # Slight delay to prevent flickering and API spam while scrolling
+            sleep 0.1;
             _T_ENC=\$(printf {} | jq -sRr @uri);
             _URL=\"$API?action=query&titles=\$_T_ENC&prop=extracts&explaintext=1&format=json&redirects=1\";
             printf \"${YELLOW}${BOLD}SUMMARY${RESET}\n${DIM}──────────────────────────────────────────${RESET}\n\n\";
