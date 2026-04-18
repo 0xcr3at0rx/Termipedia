@@ -16,7 +16,7 @@
       perSystem =
         { self', pkgs, ... }:
         let
-          name = "termipedia";
+          name = "wiki";
         in
         {
           packages."${name}" = pkgs.writeShellApplication {
@@ -27,7 +27,7 @@
             runtimeInputs = with pkgs; [ curl jq fzf less ];
 
             # script
-            text = builtins.readFile ./termipedia.sh;
+            text = builtins.readFile ./wiki;
           };
 
           packages.default = self'.packages."${name}";
